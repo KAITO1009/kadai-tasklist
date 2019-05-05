@@ -3,11 +3,11 @@
 @section('content')
 
 <!-- ここにページ毎のコンテンツを書く -->
-    <h1>id = {{ $task->id }} のタスク詳細ページ</h1>
+    <h1>NO.{{ $task->id }} のタスク詳細ページ</h1>
 
     <table class="table table-bordered">
         <tr>
-            <th>id</th>
+            <th>NO.</th>
             <td>{{ $task->id }}</td>
         </tr>
         <tr>
@@ -19,7 +19,7 @@
     {!! link_to_route('tasks.edit', 'このタスクを編集', ['id' => $task->id], ['class' => 'btn btn-primary']) !!}
 
     {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
-        {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
+        {!! Form::submit('削除', ['class' => 'btn btn-danger mt-3']) !!}
     {!! Form::close() !!}
 
 
