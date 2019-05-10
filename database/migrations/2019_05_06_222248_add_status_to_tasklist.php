@@ -14,7 +14,7 @@ class AddStatusToTasklist extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->char('status', 10);
+            $table->string('title');
         });
     }
 
