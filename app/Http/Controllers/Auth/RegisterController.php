@@ -20,6 +20,7 @@ class RegisterController extends Controller
     |
     */
 
+    //trait  showRegistrationForm,register
     use RegistersUsers;
 
     /**
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -37,6 +38,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        //guestというのは特定のクラスのエイリアスで、それはapp/http/karnel.phpで記述されている。
+        //つまり、guestというのは...\RedirectIfAuthenticatedクラスにニックネームをつけたもの
     }
 
     /**
@@ -46,7 +49,7 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
+    {//ユーザー登録の際のフォームデータのバリデーション
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
